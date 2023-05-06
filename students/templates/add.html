@@ -1,0 +1,28 @@
+<h1>Add Student</h1>
+
+<form action="add_student/" method="post">
+    {% csrf_token %}
+    Name:<br>
+    <input name="name">
+    <br><br>
+    Age:<br>
+    <input name="age">
+    <br><br>
+    group:<br>
+    <input name="group">
+    <br><br>
+    <input type="submit" value="add student">
+</form>
+<br>
+---------------------------------------
+<br><br>
+<form action="add_group/" method="post">
+    {% csrf_token %}
+    Name:<br>
+    <input name="name">
+    <br><br>
+    birth year:<br>
+    <input name="birth">
+    <br><br>
+    <input type="submit" value="add group">
+</form>

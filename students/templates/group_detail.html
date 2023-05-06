@@ -1,0 +1,26 @@
+<h1>group: {{ group.name }}</h1>
+{% if ordered_students %}
+    <table border="1">
+        <tr>
+            <td>update</td>
+            <td>name</td>
+            <td>age</td>
+            <td>score</td>
+            <td>delete</td>
+            </tr>
+        {% for stu in ordered_students %}
+            <tr>
+            <td><a href="update/{{ stu.id }}">{{ stu.id }}</a></td>
+            <td>{{ stu.name }}</td>
+            <td>{{ stu.age }}</td>
+            <td>{{ stu.score }}</td>
+            <td><a href="{% url 'students:delete' stu.id %}">delete</a></td>
+            </tr>
+        {% endfor %}
+        <br>
+    </table>
+    <a href="{% url 'students:vote_list' group.id %}">Vote again?</a>
+
+{% else %}
+    There is no student in this group!
+{% endif %}

@@ -1,0 +1,16 @@
+{%  load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+<p>
+<a href="add/">Add group/student</a>
+</p>
+
+<h1>group list</h1>
+{% if not groups %}
+    There is no groups yet!
+{% endif %}
+<ul>
+{% for gr in groups %}
+    <li>{{ gr.name }} -- {{ gr.birth_year }} -- <a href="{% url 'students:group_detail' gr.id %}">detail</a></li>
+{% endfor %}
+</ul>

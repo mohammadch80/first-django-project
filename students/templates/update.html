@@ -1,0 +1,15 @@
+<h1>Update student</h1>
+
+<form action="update_student/{{ my_student.id }}" method="post">
+{% csrf_token %}
+Name:<br>
+<input name="name" value="{{ my_student.name }}">
+<br><br>
+Age:<br>
+<input name="age" value="{{ my_student.age }}">
+<br><br>
+score:<br>
+<input name="score" value="{{ my_student.score }}">
+<br><br>
+<input type="submit" value="Update">
+</form>

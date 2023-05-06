@@ -1,0 +1,12 @@
+<form action="{% url 'students:vote' group.id %}" method="post">
+{% csrf_token %}
+<fieldset>
+    <legend><h1>{{ group.name }}</h1></legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% for stu in group.students_set.all %}
+        <input type="checkbox" name="students" id="student{{ forloop.counter }}" value="{{ stu.id }}">
+        <label for="student{{ forloop.counter }}">{{ stu.name }}</label><br>
+    {% endfor %}
+</fieldset>
+<input type="submit" value="Vote">
+</form>
